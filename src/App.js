@@ -71,6 +71,9 @@ function Main() {
             <BlockNumber />
             <BlockNumber finalized />
           </Grid.Row>
+          <Grid.Row>
+            <Kitties />
+          </Grid.Row>
           <Grid.Row stretched>
             <Balances />
           </Grid.Row>
@@ -84,9 +87,6 @@ function Main() {
           </Grid.Row>
           <Grid.Row>
             <TemplateModule />
-          </Grid.Row>
-          <Grid.Row>
-            <Kitties />
           </Grid.Row>
         </Grid>
       </Container>
