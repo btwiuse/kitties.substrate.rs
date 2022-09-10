@@ -9,8 +9,14 @@ import { TypeRegistry } from '@polkadot/types/create'
 
 import config from '../config'
 
+const maybeRelative = (url)=>{
+  if (url.startsWith("ws://") || url.startsWith("wss://")) return url ;
+  var prefix = (window.location.protocol == "https:") ? 'wss://' : 'ws://'
+  return prefix + window.location.host + url ;
+}
+
 const parsedQuery = new URLSearchParams(window.location.search)
-const connectedSocket = parsedQuery.get('rpc') || config.PROVIDER_SOCKET
+const connectedSocket = maybeRelative(parsedQuery.get('rpc') || config.PROVIDER_SOCKET)
 ///
 // Initial state for `useReducer`
 
